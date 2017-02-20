@@ -1,0 +1,39 @@
+<package format="2">
+  <name>icr</name>
+  <version>0.0.1</version>
+
+  <description>
+    This ROS package acts as client for all the other ROS
+    packages which have a well defined function. This package requests
+    some actions from the other packages in this Master Thesis.
+    It also works like a state machine to achieve the goal of 
+    grasping unknown objects and place them somewhere else.
+    See also README.md
+  </description>
+
+  <author email="gocarlos@ethz.ch">Carlos Gomes</author>
+  <maintainer email="gocarlos@ethz.ch">Carlos Gomes</maintainer>
+  <url type="repository">https://bitbucket.org/leggedrobotics/grasp_planner</url>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>glog_catkin</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+
+  <depend>libicr</depend>
+  <depend>gazebo_msgs</depend>
+  <depend>icr_msgs</depend>
+  <depend>eigen</depend>
+
+  <depend>urdf_interface</depend>
+  <depend>urdf</depend>
+  <depend>pcl_ros</depend>
+  <depend>pcl_catkin</depend>
+  <depend>visualization_msgs</depend>
+  <depend>libqhull</depend>
+
+</package>

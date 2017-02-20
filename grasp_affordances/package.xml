@@ -1,0 +1,28 @@
+<package format="2">
+  <name>grasp_affordances</name>
+  <version>0.0.1</version>
+
+  <description>
+    TODO
+    See also README.md
+  </description>
+
+  <author email="gocarlos@ethz.ch">Carlos Gomes</author>
+  <maintainer email="gocarlos@ethz.ch">Carlos Gomes</maintainer>
+  <url type="repository">https://bitbucket.org/leggedrobotics/grasp_planner</url>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>glog_catkin</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+   
+  <depend>icr_msgs</depend>  
+  <depend>pcl_ros</depend>  
+  <depend>pcl_catkin</depend>  
+  <depend>boost</depend>  
+
+</package>
