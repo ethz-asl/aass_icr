@@ -19,10 +19,9 @@
   <depend>glog_catkin</depend>
   <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
-   
-  <depend>icr_msgs</depend>  
-  <depend>pcl_ros</depend>  
-  <depend>pcl_catkin</depend>  
-  <depend>boost</depend>  
+
+  <depend>icr_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>pcl_catkin</depend>
 
 </package>

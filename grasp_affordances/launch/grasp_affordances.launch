@@ -1,6 +1,6 @@
 <launch>
 
-  <node pkg="grasp_affordances" name="grasp_affordances" type="grasp_affordances" output="screen" ns="grasp_affordances">
+  <node pkg="grasp_affordances" name="grasp_affordances_node" type="grasp_affordances_node" output="screen" ns="grasp_affordances">
     <remap from="get_icr" to="/icr_server/get_icr"/> 
     <param name="icr_database_directory" type="string" value="$(find icr)/icr_database/" /> 
   </node>

@@ -24,7 +24,7 @@ GraspAffordances::GraspAffordances() : nh_private_("~"), obj_(new   pcl::PointCl
   compute_aff_srv_ = nh_.advertiseService("compute_affordances",&GraspAffordances::computeAffordances,this);
   set_obj_srv_ = nh_.advertiseService("set_object",&GraspAffordances::setObject,this);
   fetch_icr_srv_ = nh_.advertiseService("fetch_icr",&GraspAffordances::fetchIcr,this);
- 
+
   get_icr_clt_ = nh_.serviceClient<icr_msgs::GetContactRegions>("get_icr");
   pts_pub_ = nh_.advertise<pcl::PointCloud<pcl::PointXYZRGB> >("output_regions",1);
   trans_pub_ = nh_.advertise<pcl::PointCloud<pcl::PointXYZRGB> >("transformed_regions",1);
@@ -33,7 +33,7 @@ GraspAffordances::GraspAffordances() : nh_private_("~"), obj_(new   pcl::PointCl
 //-------------------------------------------------------------------------------
 bool GraspAffordances::setObject(icr_msgs::SetObject::Request &req, icr_msgs::SetObject::Response &res)
 {
-  res.success=false;  
+  res.success=false;
   lock_.lock();
 
   obj_->clear();
@@ -54,7 +54,7 @@ bool GraspAffordances::fetchIcr(std_srvs::Empty::Request  &req, std_srvs::Empty:
 {
   icr_msgs::GetContactRegions get_icr;
   lock_.lock();
- 
+
   get_icr_clt_.call(get_icr);
   if(!get_icr.response.success)
     {
@@ -86,17 +86,17 @@ void GraspAffordances::publish()
   //Should publish the fitted regions, not the input regions - this is just an example
   if(input_icr_)
     {
-      input_icr_->header.stamp=ros::Time(0);
+      //input_icr_->header.stamp=ros::Time(0);
       input_icr_->header.frame_id=input_icr_->header.frame_id;
       pts_pub_.publish(*input_icr_);
       //publish the regions from template_alignment
-      transformed_cloud.header.stamp=ros::Time(0);
+      //transformed_cloud.header.stamp=ros::Time(0);
       transformed_cloud.header.frame_id=obj_->header.frame_id;
       trans_pub_.publish(transformed_cloud);
-      
+
     }
 
-  
+
 
   lock_.unlock();
 }
@@ -108,7 +108,7 @@ bool GraspAffordances::computeAffordances(std_srvs::Empty::Request  &req, std_sr
     lock_.unlock();
     return true;
    }
-   
+
    lock_.unlock();
    return false;
 
@@ -123,9 +123,9 @@ bool GraspAffordances::fitInputIcr()
 	FeatureCloud template_cloude;
 	template_cloud.loadInputCloud(input_icr_); // Need to adjust the function
 	*/
-  
+
   //std::cerr << "PN ICR x: " << (*input_icr_).points[0].x << std::endl;
-  
+
   //Calc local features
   //template_cloud.loadInputCloud(input_icr_);
 
@@ -155,7 +155,7 @@ bool GraspAffordances::fitInputIcr()
 //-------------------------------------------------------------------------------
 bool GraspAffordances::loadIcr(grasp_affordances::LoadIcr::Request  &req, grasp_affordances::LoadIcr::Response &res)
 {
-  res.success=false;  
+  res.success=false;
   lock_.lock();
   ROS_INFO("Loading ICR from: %s",(icr_dbase_dir_ +req.file+ ".bag").c_str());
   //load the icr

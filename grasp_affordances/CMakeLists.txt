@@ -7,14 +7,14 @@ find_package(catkin_simple REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 
 cs_add_library(${PROJECT_NAME}_library
-    src/grasp_affordances_node.cpp 
-    src/template_alignment.cpp 
+    src/grasp_affordances.cpp
+    src/template_alignment.cpp
     src/featurecloud.cpp
 )
 
-cd_add_executable(grasp_affordances src/grasp_affordances.cpp )
+cs_add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp )
 target_link_libraries(${PROJECT_NAME}_node
   ${PROJECT_NAME}_library)
-  
+
 cs_install()
 cs_export()

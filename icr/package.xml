@@ -6,7 +6,7 @@
     This ROS package acts as client for all the other ROS
     packages which have a well defined function. This package requests
     some actions from the other packages in this Master Thesis.
-    It also works like a state machine to achieve the goal of 
+    It also works like a state machine to achieve the goal of
     grasping unknown objects and place them somewhere else.
     See also README.md
   </description>
@@ -27,13 +27,12 @@
   <depend>libicr</depend>
   <depend>gazebo_msgs</depend>
   <depend>icr_msgs</depend>
-  <depend>eigen</depend>
 
-  <depend>urdf_interface</depend>
+  <!--<depend>urdf_interface</depend>-->
   <depend>urdf</depend>
   <depend>pcl_ros</depend>
   <depend>pcl_catkin</depend>
   <depend>visualization_msgs</depend>
-  <depend>libqhull</depend>
+  <!--<depend>libqhull</depend>-->
 
 </package>
